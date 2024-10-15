@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\ProgWeboweIMobilneL1.props" />
+</Project>

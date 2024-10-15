@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\ProgWeboweIMobilneL1.props" />
+</Project>

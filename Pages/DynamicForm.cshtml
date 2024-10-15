@@ -1,0 +1,23 @@
+﻿@page
+@model ProgWeboweIMobilneL1.Pages.DynamicForm
+
+@{
+    ViewData["Title"] = "Dynamic Form";
+}
+
+<button type="button" id="addField">Dodaj pole</button>
+
+<form id="dynamicForm">
+    <div id="fieldsContainer"></div>
+</form>
+
+@section Scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#addField").click(function(){
+                $("#fieldsContainer").append('<input type="text" placeholder="Nowe pole" />');
+            });
+        });
+    </script>
+}

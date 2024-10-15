@@ -1,0 +1,39 @@
+﻿@page
+@model ProgWeboweIMobilneL1.Pages.ContactModel
+
+@{
+    ViewData["Title"] = "Contact";
+}
+
+<h2>Contact Us</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="ContactInput.Name"></label>
+        <input asp-for="ContactInput.Name" class="form-control" />
+        <span asp-validation-for="ContactInput.Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ContactInput.Email"></label>
+        <input asp-for="ContactInput.Email" class="form-control" />
+        <span asp-validation-for="ContactInput.Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ContactInput.Message"></label>
+        <textarea asp-for="ContactInput.Message" class="form-control"></textarea>
+        <span asp-validation-for="ContactInput.Message" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+@if (Model.Submitted)
+{
+<h3>Submitted Data:</h3>
+<p><strong>Name:</strong> @Model.ContactInput.Name</p>
+<p><strong>Email:</strong> @Model.ContactInput.Email</p>
+<p><strong>Message:</strong> @Model.ContactInput.Message</p>
+}
+
+@section Scripts {
+<partial name="_ValidationScriptsPartial" />
+}

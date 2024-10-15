@@ -1,0 +1,36 @@
+﻿@page
+@model ProgWeboweIMobilneL1.Pages.AjaxForm
+
+@{
+    ViewData["Title"] = "Ajax Form";
+}
+
+@Html.AntiForgeryToken()
+
+<input type="text" id="nameInput" placeholder="Wpisz swoje imię" />
+
+<button type="button" id="callAjax">Wyślij</button>
+
+<div id="responseMessage"></div>
+
+@section Scripts
+{
+<script type="text/javascript">
+    $("#callAjax").click(function(){
+        var name = $("#nameInput").val();
+        $.ajax({
+            type: "POST",
+            url: "/AjaxForm?handler=GetAjax",
+            data: {"name": name},
+            contentType: 'application/x-www-form-urlencoded',
+            dataType: "json",
+            headers: {
+                "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+            },
+            success: function (msg) {
+                $("#responseMessage").text(msg);
+            }
+        });
+    });
+</script>
+}
